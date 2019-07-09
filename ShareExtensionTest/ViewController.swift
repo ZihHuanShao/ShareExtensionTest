@@ -15,55 +15,78 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         
-        
+        // MARK: - Support type: kUTTypeURL
         if let userDefault = UserDefaults.init(suiteName: "group.maxkit.fred.ShareExtensionTest") {
             if let url = userDefault.url(forKey: "share_url") {
                 myLabel.text = url.absoluteString
             }
         } else {
-            print("ERROR: suiteName")
+            fatalError()
+        }
+        
+        
+        
+        if let tempPath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxkit.fred.ShareExtensionTest") {
+            do{
+                let fileList = try FileManager.default.contentsOfDirectory(atPath: tempPath.path)
+                for file in fileList{
+                    print(file)
+                }
+            }
+            catch{
+                print("Cannot list directory")
+            }
         }
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
         
-        if let userDefault = UserDefaults.init(suiteName: "group.maxkit.fred.ShareExtensionTest") {
-            
-
-            print("viewWillAppear")
-            if let rmpData = userDefault.object(forKey: "tmpJPG") as? Data {
-                print("viewWillAppear again")
-               //let data = try ? PropertyListDecoder.decode(rmpData)
-                //let encodeObject = try? PropertyListDecoder().decode([DialRecord].self, from: rmpData)
-                let encodeObject = try? PropertyListDecoder().decode(Data.self, from: rmpData)
-                DispatchQueue.main.async {
-                    self.myImageView.image = UIImage(data: encodeObject!)
-                    //self.myImageView.image = UIImage(data: Data)
-                }
-            }
-        }
-        
-        
         
         /*
+        // MARK: - Support type: kUTTypeImage
+        // METHOD 1: 讀取失敗，UIImage(contentsOfFile: imagePath.path) always回傳nil
         if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxkit.fred.ShareExtensionTest") {
-            let imagePath = shareUrl.appendingPathComponent("IMG_2027.JPG")
+            let imagePath = shareUrl.appendingPathComponent("IMG_2093.JPG")
+            print("imagePath: \(imagePath)")
+            print("imagePath.path: \(imagePath.path)")
+            let image = UIImage(contentsOfFile: imagePath.path)
             
-            do
-            {
-                let data = try Data(contentsOf: imagePath)
+            DispatchQueue.main.async {
+                self.myImageView.image = image
+            }
+        }
+        */
+        
+        
+        
+        
+        // MARK: - Support type: kUTTypeImage
+        // METHOD 2: 讀取OK
+        if let userDefault = UserDefaults.init(suiteName: "group.maxkit.fred.ShareExtensionTest") {
+
+            print("viewWillAppear")
+            if let tmpData = userDefault.object(forKey: "tmpJPG") as? Data {
+                print("viewWillAppear again")
+                let encodeObject = try? PropertyListDecoder().decode(Data.self, from: tmpData)
                 DispatchQueue.main.async {
-                    self.myImageView.image = UIImage(data:data)
+                    self.myImageView.image = UIImage(data: encodeObject!)
                 }
             }
-            catch {
-                print(error)
+            
+        }
+        if let tempPath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxkit.fred.ShareExtensionTest") {
+            do{
+                let fileList = try FileManager.default.contentsOfDirectory(atPath: tempPath.path)
+                for file in fileList{
+                    print(file)
+                }
             }
-        }*/
- 
+            catch{
+                print("Cannot list directory")
+            }
+        }
         
     }
 }

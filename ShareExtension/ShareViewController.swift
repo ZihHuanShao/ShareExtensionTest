@@ -10,6 +10,7 @@ import UIKit
 import Social
 import MobileCoreServices
 
+
 class ShareViewController: SLComposeServiceViewController {
 
     @IBOutlet weak var myImageView: UIImageView!
@@ -42,11 +43,29 @@ class ShareViewController: SLComposeServiceViewController {
                                     
                                     if error != nil { print("Something's wrong!") }
                                     
+                                    
+                                    // METHOD 1: 使用FileManager，直接將image寫入
+                                    // 結果: 寫入OK，讀取失敗
+                                    if let url = data as? URL {
+                                        if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxkit.fred.ShareExtensionTest") {
+                                            let imagePath = shareUrl.appendingPathComponent(url.lastPathComponent)
+                                            print("url.lastPathComponent: \(url.lastPathComponent)")
+                                            print("imagePatht: \(imagePath)")
+                                            try? UIImage(named: url.lastPathComponent)?.jpegData(compressionQuality: 1)?.write(to: imagePath)
+                                            print("write image")
+                                        }
+                                    }
+ 
+                                    
+                                    /*
+                                    // METHOD 2: ，使用UserDefaults，先將得到的來源data轉為Data型別，做encode之後再寫入
+                                    // 結果:  要寫第二次才會成功，讀取OK
                                     if let userDefault = UserDefaults.init(suiteName: "group.maxkit.fred.ShareExtensionTest") {
                                         
                                         do {
                                             print("hello")
                                             let tmpData = try Data(contentsOf: data as! URL)
+                                            print("data as! URL: \(data as! URL)")
                                             print("world")
                                             let data = try?  PropertyListEncoder().encode(tmpData)
                                             print("data", data!)
@@ -58,11 +77,12 @@ class ShareViewController: SLComposeServiceViewController {
                                         }
                                         
                                     }
+                                    */
                                     
-  
                                 }
                                 break
-                                
+                            
+                            
                             // MARK: - Support type: kUTTypeURL
                             case attachment.hasItemConformingToTypeIdentifier(kUTTypeURL as String):
                                 
