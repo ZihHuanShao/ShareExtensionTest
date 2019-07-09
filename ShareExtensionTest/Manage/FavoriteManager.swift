@@ -58,7 +58,7 @@ class FavoriteManager: NSObject {
             var tmpArray: [FileObject]?
             tmpArray = self.decodeObject()
 
-            if let index = tmpArray!.index(where: { $0 == fileObject }) {
+            if let index = tmpArray!.firstIndex(where: { $0 == fileObject }) {
                 tmpArray?.remove(at: index)
                 let data = self.encodeObject(tmpArray!)
                 self.setUserDefault(data)

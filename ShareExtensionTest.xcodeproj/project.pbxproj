@@ -91,6 +91,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E4A323622D4E66400C7C481 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F298D18822CDD69900FDBACA /* ShareViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4E4A323722D4E67F00C7C481 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F298D17222CDD60200FDBACA /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4E4A323822D4E68F00C7C481 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F298D17422CDD60200FDBACA /* Main.storyboard */,
+				F298D17922CDD60E00FDBACA /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		4E4A323922D4E6A900C7C481 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F298D18A22CDD69900FDBACA /* MainInterface.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		F260B76122D4915700BAC89E /* Manage */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,12 +181,11 @@
 			children = (
 				F260B76122D4915700BAC89E /* Manage */,
 				F260B76B22D49B1F00BAC89E /* Model */,
+				4E4A323722D4E67F00C7C481 /* ViewController */,
+				4E4A323822D4E68F00C7C481 /* Storyboard */,
 				F298D19622CDD79700FDBACA /* ShareExtensionTest.entitlements */,
 				F298D17022CDD60200FDBACA /* AppDelegate.swift */,
-				F298D17222CDD60200FDBACA /* ViewController.swift */,
-				F298D17422CDD60200FDBACA /* Main.storyboard */,
 				F298D17722CDD60E00FDBACA /* Assets.xcassets */,
-				F298D17922CDD60E00FDBACA /* LaunchScreen.storyboard */,
 				F298D17C22CDD60E00FDBACA /* Info.plist */,
 			);
 			path = ShareExtensionTest;
@@ -164,9 +196,9 @@
 			children = (
 				F260B76622D491C900BAC89E /* Manage */,
 				F260B76722D49AA600BAC89E /* Model */,
+				4E4A323622D4E66400C7C481 /* ViewController */,
 				F298D19522CDD6A100FDBACA /* ShareExtension.entitlements */,
-				F298D18822CDD69900FDBACA /* ShareViewController.swift */,
-				F298D18A22CDD69900FDBACA /* MainInterface.storyboard */,
+				4E4A323922D4E6A900C7C481 /* Storyboard */,
 				F298D18D22CDD69900FDBACA /* Info.plist */,
 			);
 			path = ShareExtension;

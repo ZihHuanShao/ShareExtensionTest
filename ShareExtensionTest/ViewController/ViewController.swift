@@ -19,8 +19,21 @@ class ViewController: UIViewController {
         guard let fileObjects = manager.getFavoriteData() else { return }
         
         for fileObject in fileObjects {
-            print(fileObject)
+            print("fileObject: \(fileObject)")
+            
+            switch fileObject.type {
+            case .publicJpeg:
+                
+                DispatchQueue.main.async {
+                    self.myImageView.image = UIImage(contentsOfFile: fileObject.url.path)
+                }
+
+            default:
+                print("hello")
+            }
         }
+        
+    
         
         /*
         // MARK: - Support type: kUTTypeURL

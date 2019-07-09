@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ContentType: String {
+enum ContentType: String, Codable {
     case publicJpeg                 = "public.jpeg"
     case publicUrl                  = "public.url"
     case publicZip_archive          = "public.zip-archive"

@@ -10,7 +10,7 @@ import Foundation
 
 struct FileObject: Codable {
     let name: String
-    let type: String
+    let type: ContentType
     let url:  URL
 }
 
