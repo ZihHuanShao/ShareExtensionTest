@@ -27,11 +27,11 @@
 			<key>NSExtensionActivationRule</key>
 			<dict>
 				<key>NSExtensionActivationSupportsFileWithMaxCount</key>
-				<string>1</string>
+				<string>2</string>
 				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
-				<string>1</string>
+				<string>2</string>
 				<key>NSExtensionActivationSupportsImageWithMaxCount</key>
-				<string>1</string>
+				<string>2</string>
 			</dict>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>

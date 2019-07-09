@@ -11,11 +11,18 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var myLabel: UILabel!
+    let manager = FavoriteManager.shareInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let fileObjects = manager.getFavoriteData() else { return }
         
+        for fileObject in fileObjects {
+            print(fileObject)
+        }
+        
+        /*
         // MARK: - Support type: kUTTypeURL
         if let userDefault = UserDefaults.init(suiteName: "group.maxkit.fred.ShareExtensionTest") {
             if let url = userDefault.url(forKey: "share_url") {
@@ -38,7 +45,7 @@ class ViewController: UIViewController {
                 print("Cannot list directory")
             }
         }
-
+        */
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +68,7 @@ class ViewController: UIViewController {
         
         
         
-        
+        /*
         // MARK: - Support type: kUTTypeImage
         // METHOD 2: 讀取OK
         if let userDefault = UserDefaults.init(suiteName: "group.maxkit.fred.ShareExtensionTest") {
@@ -87,7 +94,7 @@ class ViewController: UIViewController {
                 print("Cannot list directory")
             }
         }
-        
+        */
     }
 }
 

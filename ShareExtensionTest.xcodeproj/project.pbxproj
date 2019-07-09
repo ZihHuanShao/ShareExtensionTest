@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4EDFDA4C22CFB3FE009425CC /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFDA4B22CFB3FE009425CC /* FavoriteManager.swift */; };
+		F260B75A22D490F700BAC89E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D18822CDD69900FDBACA /* ShareViewController.swift */; };
+		F260B75F22D4914C00BAC89E /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B75D22D4914B00BAC89E /* FavoriteManager.swift */; };
+		F260B76022D4914C00BAC89E /* FileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B75E22D4914B00BAC89E /* FileObject.swift */; };
+		F260B76322D491A300BAC89E /* FileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B76222D491A300BAC89E /* FileObject.swift */; };
+		F260B76522D491AB00BAC89E /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B76422D491AB00BAC89E /* FavoriteManager.swift */; };
 		F298D17122CDD60200FDBACA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D17022CDD60200FDBACA /* AppDelegate.swift */; };
 		F298D17322CDD60200FDBACA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D17222CDD60200FDBACA /* ViewController.swift */; };
 		F298D17622CDD60200FDBACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298D17422CDD60200FDBACA /* Main.storyboard */; };
 		F298D17822CDD60E00FDBACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F298D17722CDD60E00FDBACA /* Assets.xcassets */; };
 		F298D17B22CDD60E00FDBACA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298D17922CDD60E00FDBACA /* LaunchScreen.storyboard */; };
-		F298D18922CDD69900FDBACA /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D18822CDD69900FDBACA /* ShareViewController.swift */; };
 		F298D18C22CDD69900FDBACA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298D18A22CDD69900FDBACA /* MainInterface.storyboard */; };
 		F298D19022CDD69900FDBACA /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F298D18622CDD69900FDBACA /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -43,7 +46,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4EDFDA4B22CFB3FE009425CC /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
+		F260B75D22D4914B00BAC89E /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteManager.swift; path = ShareExtensionTest/Manage/FavoriteManager.swift; sourceTree = SOURCE_ROOT; };
+		F260B75E22D4914B00BAC89E /* FileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObject.swift; path = ShareExtensionTest/Manage/FileObject.swift; sourceTree = SOURCE_ROOT; };
+		F260B76222D491A300BAC89E /* FileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObject.swift; path = ShareExtension/Manage/FileObject.swift; sourceTree = SOURCE_ROOT; };
+		F260B76422D491AB00BAC89E /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteManager.swift; path = ShareExtension/Manage/FavoriteManager.swift; sourceTree = SOURCE_ROOT; };
 		F298D16D22CDD60200FDBACA /* ShareExtensionTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareExtensionTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F298D17022CDD60200FDBACA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F298D17222CDD60200FDBACA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F260B76122D4915700BAC89E /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				F260B75D22D4914B00BAC89E /* FavoriteManager.swift */,
+				F260B75E22D4914B00BAC89E /* FileObject.swift */,
+			);
+			path = Manage;
+			sourceTree = "<group>";
+		};
+		F260B76622D491C900BAC89E /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				F260B76422D491AB00BAC89E /* FavoriteManager.swift */,
+				F260B76222D491A300BAC89E /* FileObject.swift */,
+			);
+			path = Manage;
+			sourceTree = "<group>";
+		};
 		F298D16422CDD60200FDBACA = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +122,7 @@
 		F298D16F22CDD60200FDBACA /* ShareExtensionTest */ = {
 			isa = PBXGroup;
 			children = (
+				F260B76122D4915700BAC89E /* Manage */,
 				F298D19622CDD79700FDBACA /* ShareExtensionTest.entitlements */,
 				F298D17022CDD60200FDBACA /* AppDelegate.swift */,
 				F298D17222CDD60200FDBACA /* ViewController.swift */,
@@ -112,8 +137,8 @@
 		F298D18722CDD69900FDBACA /* ShareExtension */ = {
 			isa = PBXGroup;
 			children = (
+				F260B76622D491C900BAC89E /* Manage */,
 				F298D19522CDD6A100FDBACA /* ShareExtension.entitlements */,
-				4EDFDA4B22CFB3FE009425CC /* FavoriteManager.swift */,
 				F298D18822CDD69900FDBACA /* ShareViewController.swift */,
 				F298D18A22CDD69900FDBACA /* MainInterface.storyboard */,
 				F298D18D22CDD69900FDBACA /* Info.plist */,
@@ -233,7 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F260B75F22D4914C00BAC89E /* FavoriteManager.swift in Sources */,
 				F298D17322CDD60200FDBACA /* ViewController.swift in Sources */,
+				F260B76022D4914C00BAC89E /* FileObject.swift in Sources */,
 				F298D17122CDD60200FDBACA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,8 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F298D18922CDD69900FDBACA /* ShareViewController.swift in Sources */,
-				4EDFDA4C22CFB3FE009425CC /* FavoriteManager.swift in Sources */,
+				F260B76522D491AB00BAC89E /* FavoriteManager.swift in Sources */,
+				F260B75A22D490F700BAC89E /* ShareViewController.swift in Sources */,
+				F260B76322D491A300BAC89E /* FileObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

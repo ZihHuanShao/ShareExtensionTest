@@ -11,9 +11,23 @@ import Social
 import MobileCoreServices
 
 
-class ShareViewController: SLComposeServiceViewController {
 
+enum ContentType: String {
+    case publicJpeg                 = "public.jpeg"
+    case publicUrl                  = "public.url"
+    case publicZip_archive          = "public.zip-archive"
+    case comAppleIworkPagesSffpages = "com.apple.iwork.pages.sffpages"
+    case publicJson                 = "public.json"
+    case publicPng                  = "public.png"
+    case publicPlainText            = "public.plain-text"
+    case publicMpeg4                = "public.mpeg-4"
+}
+
+class ShareViewController: SLComposeServiceViewController {
+    
     @IBOutlet weak var myImageView: UIImageView!
+    let suiteName = "group.maxkit.fred.ShareExtensionTest"
+    let manager = FavoriteManager.shareInstance
     override func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
         return true
@@ -24,14 +38,52 @@ class ShareViewController: SLComposeServiceViewController {
         
         if let inputItems = extensionContext!.inputItems as? [NSExtensionItem] {
             
-            
             for inputItem in inputItems {
                 
                 if let attachments = inputItem.attachments {
                     
                     for attachment in attachments {
                         
-                        if attachment.hasItemConformingToTypeIdentifier(kUTTypeItem as String) {
+                        print("attachment: \(attachment)")
+                        
+                        switch (true) {
+                        case attachment.hasItemConformingToTypeIdentifier(ContentType.publicJpeg.rawValue):
+                            self.retriveAttachment(attachment: attachment, type: .publicJpeg)
+                        
+                        case attachment.hasItemConformingToTypeIdentifier(ContentType.publicUrl.rawValue):
+                            
+                            switch (true) {
+                            case attachment.hasItemConformingToTypeIdentifier(ContentType.publicZip_archive.rawValue):
+                                
+                                switch (true) {
+                                case attachment.hasItemConformingToTypeIdentifier(ContentType.comAppleIworkPagesSffpages.rawValue):
+                                    self.retriveAttachment(attachment: attachment, type: .comAppleIworkPagesSffpages)
+
+                                default:
+                                    self.retriveAttachment(attachment: attachment, type: .publicZip_archive)
+                                }
+                             
+                            case attachment.hasItemConformingToTypeIdentifier(ContentType.publicJson.rawValue):
+                                self.retriveAttachment(attachment: attachment, type: .publicJson)
+                            
+                            case attachment.hasItemConformingToTypeIdentifier(ContentType.publicPng.rawValue):
+                                self.retriveAttachment(attachment: attachment, type: .publicPng)
+                                
+                            case attachment.hasItemConformingToTypeIdentifier(ContentType.publicPlainText.rawValue):
+                                self.retriveAttachment(attachment: attachment, type: .publicPlainText)
+                                
+                            case attachment.hasItemConformingToTypeIdentifier(ContentType.publicMpeg4.rawValue):
+                                self.retriveAttachment(attachment: attachment, type: .publicMpeg4)
+                                
+                            default:
+                                self.retriveAttachment(attachment: attachment, type: .publicUrl)
+                            }
+                            
+                        default:
+                            print("default attachment: \(attachment)")
+                        }
+                        
+                       /* if attachment.hasItemConformingToTypeIdentifier(kUTTypeItem as String) {
                             
                             switch (true) {
                             
@@ -108,13 +160,16 @@ class ShareViewController: SLComposeServiceViewController {
                             
                         } else {
                             print("ERROR TYPE: \(attachment)")
-                        }
+                        }*/
 
                     }
                 }
             }
         }
         
+        
+
+        print("heool")
         self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
     }
 
@@ -122,5 +177,22 @@ class ShareViewController: SLComposeServiceViewController {
         // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
         return []
     }
+    
 
+    // MARK: - To get info of attachment
+    func retriveAttachment(attachment: NSItemProvider, type: ContentType) {
+        attachment.loadItem(forTypeIdentifier: type.rawValue, options: nil) {
+            (data, error) in
+            if error != nil { print(error!.localizedDescription) }
+            if let url = data as? URL {
+                let fileObject = FileObject(name: url.lastPathComponent, type: type.rawValue, url: url)
+                if !self.manager.isExistFavoriteData(fileObject) {
+                    self.manager.setFavoriteData(fileObject)
+                }
+                print("fileObject: \(fileObject)")
+            }
+        }
+        
+    }
+    
 }
