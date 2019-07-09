@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4EDFDA4C22CFB3FE009425CC /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFDA4B22CFB3FE009425CC /* FavoriteManager.swift */; };
+		F298D17122CDD60200FDBACA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D17022CDD60200FDBACA /* AppDelegate.swift */; };
+		F298D17322CDD60200FDBACA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D17222CDD60200FDBACA /* ViewController.swift */; };
+		F298D17622CDD60200FDBACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298D17422CDD60200FDBACA /* Main.storyboard */; };
+		F298D17822CDD60E00FDBACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F298D17722CDD60E00FDBACA /* Assets.xcassets */; };
+		F298D17B22CDD60E00FDBACA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298D17922CDD60E00FDBACA /* LaunchScreen.storyboard */; };
+		F298D18922CDD69900FDBACA /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D18822CDD69900FDBACA /* ShareViewController.swift */; };
+		F298D18C22CDD69900FDBACA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298D18A22CDD69900FDBACA /* MainInterface.storyboard */; };
+		F298D19022CDD69900FDBACA /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F298D18622CDD69900FDBACA /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F298D18E22CDD69900FDBACA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F298D16522CDD60200FDBACA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F298D18522CDD69900FDBACA;
+			remoteInfo = ShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F298D19422CDD69900FDBACA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F298D19022CDD69900FDBACA /* ShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4EDFDA4B22CFB3FE009425CC /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
+		F298D16D22CDD60200FDBACA /* ShareExtensionTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareExtensionTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F298D17022CDD60200FDBACA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F298D17222CDD60200FDBACA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F298D17522CDD60200FDBACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F298D17722CDD60E00FDBACA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F298D17A22CDD60E00FDBACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F298D17C22CDD60E00FDBACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F298D18622CDD69900FDBACA /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F298D18822CDD69900FDBACA /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		F298D18B22CDD69900FDBACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F298D18D22CDD69900FDBACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F298D19522CDD6A100FDBACA /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
+		F298D19622CDD79700FDBACA /* ShareExtensionTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtensionTest.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F298D16A22CDD60200FDBACA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F298D18322CDD69900FDBACA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F298D16422CDD60200FDBACA = {
+			isa = PBXGroup;
+			children = (
+				F298D16F22CDD60200FDBACA /* ShareExtensionTest */,
+				F298D18722CDD69900FDBACA /* ShareExtension */,
+				F298D16E22CDD60200FDBACA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F298D16E22CDD60200FDBACA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F298D16D22CDD60200FDBACA /* ShareExtensionTest.app */,
+				F298D18622CDD69900FDBACA /* ShareExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F298D16F22CDD60200FDBACA /* ShareExtensionTest */ = {
+			isa = PBXGroup;
+			children = (
+				F298D19622CDD79700FDBACA /* ShareExtensionTest.entitlements */,
+				F298D17022CDD60200FDBACA /* AppDelegate.swift */,
+				F298D17222CDD60200FDBACA /* ViewController.swift */,
+				F298D17422CDD60200FDBACA /* Main.storyboard */,
+				F298D17722CDD60E00FDBACA /* Assets.xcassets */,
+				F298D17922CDD60E00FDBACA /* LaunchScreen.storyboard */,
+				F298D17C22CDD60E00FDBACA /* Info.plist */,
+			);
+			path = ShareExtensionTest;
+			sourceTree = "<group>";
+		};
+		F298D18722CDD69900FDBACA /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F298D19522CDD6A100FDBACA /* ShareExtension.entitlements */,
+				4EDFDA4B22CFB3FE009425CC /* FavoriteManager.swift */,
+				F298D18822CDD69900FDBACA /* ShareViewController.swift */,
+				F298D18A22CDD69900FDBACA /* MainInterface.storyboard */,
+				F298D18D22CDD69900FDBACA /* Info.plist */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F298D16C22CDD60200FDBACA /* ShareExtensionTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F298D17F22CDD60E00FDBACA /* Build configuration list for PBXNativeTarget "ShareExtensionTest" */;
+			buildPhases = (
+				F298D16922CDD60200FDBACA /* Sources */,
+				F298D16A22CDD60200FDBACA /* Frameworks */,
+				F298D16B22CDD60200FDBACA /* Resources */,
+				F298D19422CDD69900FDBACA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F298D18F22CDD69900FDBACA /* PBXTargetDependency */,
+			);
+			name = ShareExtensionTest;
+			productName = ShareExtensionTest;
+			productReference = F298D16D22CDD60200FDBACA /* ShareExtensionTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F298D18522CDD69900FDBACA /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F298D19122CDD69900FDBACA /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				F298D18222CDD69900FDBACA /* Sources */,
+				F298D18322CDD69900FDBACA /* Frameworks */,
+				F298D18422CDD69900FDBACA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = F298D18622CDD69900FDBACA /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F298D16522CDD60200FDBACA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = fredshao;
+				TargetAttributes = {
+					F298D16C22CDD60200FDBACA = {
+						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					F298D18522CDD69900FDBACA = {
+						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = F298D16822CDD60200FDBACA /* Build configuration list for PBXProject "ShareExtensionTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F298D16422CDD60200FDBACA;
+			productRefGroup = F298D16E22CDD60200FDBACA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F298D16C22CDD60200FDBACA /* ShareExtensionTest */,
+				F298D18522CDD69900FDBACA /* ShareExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F298D16B22CDD60200FDBACA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F298D17B22CDD60E00FDBACA /* LaunchScreen.storyboard in Resources */,
+				F298D17822CDD60E00FDBACA /* Assets.xcassets in Resources */,
+				F298D17622CDD60200FDBACA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F298D18422CDD69900FDBACA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F298D18C22CDD69900FDBACA /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F298D16922CDD60200FDBACA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F298D17322CDD60200FDBACA /* ViewController.swift in Sources */,
+				F298D17122CDD60200FDBACA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F298D18222CDD69900FDBACA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F298D18922CDD69900FDBACA /* ShareViewController.swift in Sources */,
+				4EDFDA4C22CFB3FE009425CC /* FavoriteManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F298D18F22CDD69900FDBACA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F298D18522CDD69900FDBACA /* ShareExtension */;
+			targetProxy = F298D18E22CDD69900FDBACA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F298D17422CDD60200FDBACA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F298D17522CDD60200FDBACA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F298D17922CDD60E00FDBACA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F298D17A22CDD60E00FDBACA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F298D18A22CDD69900FDBACA /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F298D18B22CDD69900FDBACA /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F298D17D22CDD60E00FDBACA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F298D17E22CDD60E00FDBACA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F298D18022CDD60E00FDBACA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShareExtensionTest/ShareExtensionTest.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8EVJTWJNSJ;
+				INFOPLIST_FILE = ShareExtensionTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.maxkit.ios.sample.ShareExtensionTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F298D18122CDD60E00FDBACA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShareExtensionTest/ShareExtensionTest.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8EVJTWJNSJ;
+				INFOPLIST_FILE = ShareExtensionTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.maxkit.ios.sample.ShareExtensionTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F298D19222CDD69900FDBACA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8EVJTWJNSJ;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.maxkit.ios.sample.ShareExtensionTest.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F298D19322CDD69900FDBACA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8EVJTWJNSJ;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.maxkit.ios.sample.ShareExtensionTest.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F298D16822CDD60200FDBACA /* Build configuration list for PBXProject "ShareExtensionTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F298D17D22CDD60E00FDBACA /* Debug */,
+				F298D17E22CDD60E00FDBACA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F298D17F22CDD60E00FDBACA /* Build configuration list for PBXNativeTarget "ShareExtensionTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F298D18022CDD60E00FDBACA /* Debug */,
+				F298D18122CDD60E00FDBACA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F298D19122CDD69900FDBACA /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F298D19222CDD69900FDBACA /* Debug */,
+				F298D19322CDD69900FDBACA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F298D16522CDD60200FDBACA /* Project object */;
+}
