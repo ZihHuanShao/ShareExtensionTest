@@ -8,20 +8,6 @@
 
 import UIKit
 import Social
-import MobileCoreServices
-
-
-
-enum ContentType: String {
-    case publicJpeg                 = "public.jpeg"
-    case publicUrl                  = "public.url"
-    case publicZip_archive          = "public.zip-archive"
-    case comAppleIworkPagesSffpages = "com.apple.iwork.pages.sffpages"
-    case publicJson                 = "public.json"
-    case publicPng                  = "public.png"
-    case publicPlainText            = "public.plain-text"
-    case publicMpeg4                = "public.mpeg-4"
-}
 
 class ShareViewController: SLComposeServiceViewController {
     

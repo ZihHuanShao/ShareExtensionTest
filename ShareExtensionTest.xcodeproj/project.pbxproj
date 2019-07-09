@@ -9,9 +9,15 @@
 /* Begin PBXBuildFile section */
 		F260B75A22D490F700BAC89E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D18822CDD69900FDBACA /* ShareViewController.swift */; };
 		F260B75F22D4914C00BAC89E /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B75D22D4914B00BAC89E /* FavoriteManager.swift */; };
-		F260B76022D4914C00BAC89E /* FileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B75E22D4914B00BAC89E /* FileObject.swift */; };
 		F260B76322D491A300BAC89E /* FileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B76222D491A300BAC89E /* FileObject.swift */; };
-		F260B76522D491AB00BAC89E /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B76422D491AB00BAC89E /* FavoriteManager.swift */; };
+		F260B76922D49AE100BAC89E /* ContantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B76822D49AE100BAC89E /* ContantType.swift */; };
+		F260B76A22D49AE100BAC89E /* ContantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B76822D49AE100BAC89E /* ContantType.swift */; };
+		F260B76D22D49B4B00BAC89E /* ContantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B76C22D49B4B00BAC89E /* ContantType.swift */; };
+		F260B76E22D49B4B00BAC89E /* ContantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B76C22D49B4B00BAC89E /* ContantType.swift */; };
+		F260B77122D49BAC00BAC89E /* FileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B77022D49BAC00BAC89E /* FileObject.swift */; };
+		F260B77222D49BAC00BAC89E /* FileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B77022D49BAC00BAC89E /* FileObject.swift */; };
+		F260B77722D49BF900BAC89E /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B77622D49BF900BAC89E /* FavoriteManager.swift */; };
+		F260B77822D49BF900BAC89E /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B77622D49BF900BAC89E /* FavoriteManager.swift */; };
 		F298D17122CDD60200FDBACA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D17022CDD60200FDBACA /* AppDelegate.swift */; };
 		F298D17322CDD60200FDBACA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D17222CDD60200FDBACA /* ViewController.swift */; };
 		F298D17622CDD60200FDBACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F298D17422CDD60200FDBACA /* Main.storyboard */; };
@@ -47,9 +53,11 @@
 
 /* Begin PBXFileReference section */
 		F260B75D22D4914B00BAC89E /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteManager.swift; path = ShareExtensionTest/Manage/FavoriteManager.swift; sourceTree = SOURCE_ROOT; };
-		F260B75E22D4914B00BAC89E /* FileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObject.swift; path = ShareExtensionTest/Manage/FileObject.swift; sourceTree = SOURCE_ROOT; };
-		F260B76222D491A300BAC89E /* FileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObject.swift; path = ShareExtension/Manage/FileObject.swift; sourceTree = SOURCE_ROOT; };
-		F260B76422D491AB00BAC89E /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteManager.swift; path = ShareExtension/Manage/FavoriteManager.swift; sourceTree = SOURCE_ROOT; };
+		F260B76222D491A300BAC89E /* FileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObject.swift; path = ShareExtension/Model/FileObject.swift; sourceTree = SOURCE_ROOT; };
+		F260B76822D49AE100BAC89E /* ContantType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContantType.swift; sourceTree = "<group>"; };
+		F260B76C22D49B4B00BAC89E /* ContantType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContantType.swift; path = ShareExtension/Model/ContantType.swift; sourceTree = SOURCE_ROOT; };
+		F260B77022D49BAC00BAC89E /* FileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObject.swift; path = ShareExtension/Model/FileObject.swift; sourceTree = SOURCE_ROOT; };
+		F260B77622D49BF900BAC89E /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteManager.swift; path = ShareExtensionTest/Manage/FavoriteManager.swift; sourceTree = SOURCE_ROOT; };
 		F298D16D22CDD60200FDBACA /* ShareExtensionTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareExtensionTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F298D17022CDD60200FDBACA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F298D17222CDD60200FDBACA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				F260B75D22D4914B00BAC89E /* FavoriteManager.swift */,
-				F260B75E22D4914B00BAC89E /* FileObject.swift */,
 			);
 			path = Manage;
 			sourceTree = "<group>";
@@ -95,10 +102,27 @@
 		F260B76622D491C900BAC89E /* Manage */ = {
 			isa = PBXGroup;
 			children = (
-				F260B76422D491AB00BAC89E /* FavoriteManager.swift */,
-				F260B76222D491A300BAC89E /* FileObject.swift */,
+				F260B77622D49BF900BAC89E /* FavoriteManager.swift */,
 			);
 			path = Manage;
+			sourceTree = "<group>";
+		};
+		F260B76722D49AA600BAC89E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F260B76222D491A300BAC89E /* FileObject.swift */,
+				F260B76822D49AE100BAC89E /* ContantType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F260B76B22D49B1F00BAC89E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F260B77022D49BAC00BAC89E /* FileObject.swift */,
+				F260B76C22D49B4B00BAC89E /* ContantType.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F298D16422CDD60200FDBACA = {
@@ -123,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				F260B76122D4915700BAC89E /* Manage */,
+				F260B76B22D49B1F00BAC89E /* Model */,
 				F298D19622CDD79700FDBACA /* ShareExtensionTest.entitlements */,
 				F298D17022CDD60200FDBACA /* AppDelegate.swift */,
 				F298D17222CDD60200FDBACA /* ViewController.swift */,
@@ -138,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				F260B76622D491C900BAC89E /* Manage */,
+				F260B76722D49AA600BAC89E /* Model */,
 				F298D19522CDD6A100FDBACA /* ShareExtension.entitlements */,
 				F298D18822CDD69900FDBACA /* ShareViewController.swift */,
 				F298D18A22CDD69900FDBACA /* MainInterface.storyboard */,
@@ -258,9 +284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F260B77122D49BAC00BAC89E /* FileObject.swift in Sources */,
+				F260B77722D49BF900BAC89E /* FavoriteManager.swift in Sources */,
 				F260B75F22D4914C00BAC89E /* FavoriteManager.swift in Sources */,
+				F260B76D22D49B4B00BAC89E /* ContantType.swift in Sources */,
 				F298D17322CDD60200FDBACA /* ViewController.swift in Sources */,
-				F260B76022D4914C00BAC89E /* FileObject.swift in Sources */,
+				F260B76922D49AE100BAC89E /* ContantType.swift in Sources */,
 				F298D17122CDD60200FDBACA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F260B76522D491AB00BAC89E /* FavoriteManager.swift in Sources */,
+				F260B77222D49BAC00BAC89E /* FileObject.swift in Sources */,
+				F260B77822D49BF900BAC89E /* FavoriteManager.swift in Sources */,
+				F260B76A22D49AE100BAC89E /* ContantType.swift in Sources */,
+				F260B76E22D49B4B00BAC89E /* ContantType.swift in Sources */,
 				F260B75A22D490F700BAC89E /* ShareViewController.swift in Sources */,
 				F260B76322D491A300BAC89E /* FileObject.swift in Sources */,
 			);
