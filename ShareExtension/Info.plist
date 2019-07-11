@@ -28,9 +28,9 @@
 			<dict>
 				<key>NSExtensionActivationSupportsFileWithMaxCount</key>
 				<string>2</string>
-				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
-				<string>2</string>
 				<key>NSExtensionActivationSupportsImageWithMaxCount</key>
+				<string>2</string>
+				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
 				<string>2</string>
 			</dict>
 		</dict>

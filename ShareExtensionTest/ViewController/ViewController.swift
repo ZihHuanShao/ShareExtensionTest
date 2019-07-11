@@ -9,28 +9,45 @@
 import UIKit
 
 class ViewController: UIViewController {
+
     @IBOutlet weak var myImageView: UIImageView!
-    @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var myTableView: UITableView!
     let manager = FavoriteManager.shareInstance
+    let fileObjects = FavoriteManager.shareInstance.getFavoriteData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let fileObjects = manager.getFavoriteData() else { return }
+        updateDataSrc()
         
-        for fileObject in fileObjects {
-            print("fileObject: \(fileObject)")
-            
-            switch fileObject.type {
-            case .publicJpeg:
+        if let _ = fileObjects {
+            for fileObject in fileObjects! {
+                print("fileObject: \(fileObject)")
                 
-                DispatchQueue.main.async {
-                    self.myImageView.image = UIImage(contentsOfFile: fileObject.url.path)
+                switch fileObject.type {
+                case .publicJpeg:
+                    
+                    let fileSize = getSize(url: fileObject.url)
+                    
+                    print("fileSize: \(fileSize)")
+                
+                case .publicPng:
+                    let fileSize = getSize(url: fileObject.url)
+                    print("fileSize: \(fileSize)")
+                    
+                default:
+                    print("hello")
                 }
-
-            default:
-                print("hello")
+                print("")
             }
+        }
+        
+        
+        let userDefault = UserDefaults.init(suiteName: "group.maxkit.fred.ShareExtensionTest")
+        if let dict = userDefault?.dictionary(forKey: "img") {
+            myImageView.image = UIImage(data: dict["image"] as! Data)
+            print("name: \(dict["name"])")
+            
         }
         
     
@@ -109,5 +126,62 @@ class ViewController: UIViewController {
         }
         */
     }
+    
+    func updateDataSrc() {
+        myTableView.dataSource = self
+        myTableView.delegate = self
+    }
+    
+    func getSize(url: URL) -> UInt64? {
+        do {
+            url.startAccessingSecurityScopedResource()
+            let attr = try FileManager.default.attributesOfItem(atPath: url.path)
+            url.stopAccessingSecurityScopedResource()
+            let fileSize = attr[FileAttributeKey.size] as! UInt64
+            
+            /*
+            let dict = attr as NSDictionary
+            fileSize = dict.fileSize()
+             */
+            
+            return fileSize
+        } catch {
+            print("getSize Error: \(error)")
+            return nil
+        }
+    }
 }
 
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let _ = fileObjects {
+            return fileObjects!.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! myTableViewCell
+        if let _ = fileObjects {
+            cell.textLabel!.text = fileObjects![indexPath.row].name
+        }
+        
+        return cell
+    }
+    
+    
+}
+
+// MARK: - UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let _ = fileObjects {
+            let activityViewController = UIActivityViewController(activityItems: [fileObjects![indexPath.row].url.path], applicationActivities: nil)
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+        
+
+        
+    }
+}

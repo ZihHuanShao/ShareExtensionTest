@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F21B50F922D581B20071AB93 /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B50F822D581B20071AB93 /* myTableViewCell.swift */; };
 		F260B75A22D490F700BAC89E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F298D18822CDD69900FDBACA /* ShareViewController.swift */; };
 		F260B75F22D4914C00BAC89E /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B75D22D4914B00BAC89E /* FavoriteManager.swift */; };
 		F260B76322D491A300BAC89E /* FileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260B76222D491A300BAC89E /* FileObject.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F21B50F822D581B20071AB93 /* myTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableViewCell.swift; sourceTree = "<group>"; };
 		F260B75D22D4914B00BAC89E /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteManager.swift; path = ShareExtensionTest/Manage/FavoriteManager.swift; sourceTree = SOURCE_ROOT; };
 		F260B76222D491A300BAC89E /* FileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObject.swift; path = ShareExtension/Model/FileObject.swift; sourceTree = SOURCE_ROOT; };
 		F260B76822D49AE100BAC89E /* ContantType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContantType.swift; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		F21B50FA22D585280071AB93 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F21B50F822D581B20071AB93 /* myTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		F260B76122D4915700BAC89E /* Manage */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +193,7 @@
 				F260B76B22D49B1F00BAC89E /* Model */,
 				4E4A323722D4E67F00C7C481 /* ViewController */,
 				4E4A323822D4E68F00C7C481 /* Storyboard */,
+				F21B50FA22D585280071AB93 /* Cell */,
 				F298D19622CDD79700FDBACA /* ShareExtensionTest.entitlements */,
 				F298D17022CDD60200FDBACA /* AppDelegate.swift */,
 				F298D17722CDD60E00FDBACA /* Assets.xcassets */,
@@ -259,6 +270,12 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
 						};
 					};
 					F298D18522CDD69900FDBACA = {
@@ -317,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F260B77122D49BAC00BAC89E /* FileObject.swift in Sources */,
+				F21B50F922D581B20071AB93 /* myTableViewCell.swift in Sources */,
 				F260B77722D49BF900BAC89E /* FavoriteManager.swift in Sources */,
 				F260B75F22D4914C00BAC89E /* FavoriteManager.swift in Sources */,
 				F260B76D22D49B4B00BAC89E /* ContantType.swift in Sources */,
@@ -499,15 +517,19 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShareExtensionTest/ShareExtensionTest.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8EVJTWJNSJ;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = ShareExtensionTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tw.com.maxkit.ios.sample.ShareExtensionTest;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxkit.test.extensiontests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = TestExtensionsProvisioningDev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -519,15 +541,19 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShareExtensionTest/ShareExtensionTest.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8EVJTWJNSJ;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = ShareExtensionTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tw.com.maxkit.ios.sample.ShareExtensionTest;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxkit.test.extensiontests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = TestExtensionsProvisioningPro;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -536,7 +562,9 @@
 		F298D19222CDD69900FDBACA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8EVJTWJNSJ;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
@@ -545,8 +573,9 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tw.com.maxkit.ios.sample.ShareExtensionTest.ShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxkit.test.extensiontests.ext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -556,7 +585,9 @@
 		F298D19322CDD69900FDBACA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8EVJTWJNSJ;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
@@ -565,8 +596,9 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tw.com.maxkit.ios.sample.ShareExtensionTest.ShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxkit.test.extensiontests.ext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

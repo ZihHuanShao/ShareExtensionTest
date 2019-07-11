@@ -65,6 +65,9 @@ class ShareViewController: SLComposeServiceViewController {
                                 self.retriveAttachment(attachment: attachment, type: .publicUrl)
                             }
                             
+                        case attachment.hasItemConformingToTypeIdentifier(ContentType.publicPng.rawValue):
+                            self.retriveAttachment(attachment: attachment, type: .publicPng)
+                            
                         default:
                             print("default attachment: \(attachment)")
                         }
@@ -90,16 +93,55 @@ class ShareViewController: SLComposeServiceViewController {
     func retriveAttachment(attachment: NSItemProvider, type: ContentType) {
         attachment.loadItem(forTypeIdentifier: type.rawValue, options: nil) {
             (data, error) in
-            if error != nil { print(error!.localizedDescription) }
+            if error != nil { print(error!) }
             if let url = data as? URL {
-                let fileObject = FileObject(name: url.lastPathComponent, type: ContentType(rawValue: type.rawValue)!, url: url)
-                if !self.manager.isExistFavoriteData(fileObject) {
-                    self.manager.setFavoriteData(fileObject)
-                }
+                
+                let fileObject = FileObject(name: url.lastPathComponent, type: type, url: url)
+                url.startAccessingSecurityScopedResource()
+                self.manager.setFavoriteData(fileObject)
                 print("fileObject: \(fileObject)")
+                print("getSize: \(self.getSize(atPath: url.path))")
+                print("write data")
+                print("")
+                url.stopAccessingSecurityScopedResource()
+                
+                //////
+                do {
+                    url.startAccessingSecurityScopedResource()
+                    let imageData = try Data(contentsOf: url)
+                    let dict = ["image":imageData,
+                                "name":url.lastPathComponent
+                                ] as [String : Any]
+                    let userDefault = UserDefaults.init(suiteName: "group.maxkit.fred.ShareExtensionTest")
+                    userDefault?.setValue(dict, forKey: "img")
+                    print("write dict")
+                    url.stopAccessingSecurityScopedResource()
+                } catch {
+                    fatalError().localizedDescription
+                }
+                //////
+                
             }
+            
         }
         
+    }
+    
+    func getSize(atPath path: String) -> UInt64? {
+        do {
+            let attr = try FileManager.default.attributesOfItem(atPath: path)
+            let fileSize = attr[FileAttributeKey.size] as! UInt64
+            
+            /*
+             let dict = attr as NSDictionary
+             fileSize = dict.fileSize()
+             */
+            
+            return fileSize
+        } catch {
+            print("getSize Error: \(error)")
+            return nil
+        }
     }
     
 }
