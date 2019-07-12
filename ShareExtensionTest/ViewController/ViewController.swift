@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var myLabel: UILabel!
-    let manager = FavoriteManager.shareInstance
+    
+    let manager     = FavoriteManager.shareInstance
+    let suiteName   = "group.maxkit.fred.ShareExtensionTest"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +25,21 @@ class ViewController: UIViewController {
             
             switch fileObject.type {
             case .publicJpeg:
-                
-                DispatchQueue.main.async {
-                    self.myImageView.image = UIImage(contentsOfFile: fileObject.url.path)
+                if let userDefault = UserDefaults.init(suiteName: suiteName) {
+                    let imgData = userDefault.data(forKey: fileObject.name)
+                    DispatchQueue.main.async {
+                        self.myImageView.image = UIImage(data: imgData!)
+                    }
                 }
-
+                
+                
+            case .publicPng:
+                if let userDefault = UserDefaults.init(suiteName: suiteName) {
+                    let imgData = userDefault.data(forKey: fileObject.name)
+                    DispatchQueue.main.async {
+                        self.myImageView.image = UIImage(data: imgData!)
+                    }
+                }
             default:
                 print("hello")
             }

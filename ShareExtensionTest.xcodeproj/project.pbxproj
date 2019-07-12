@@ -197,8 +197,8 @@
 				F260B76622D491C900BAC89E /* Manage */,
 				F260B76722D49AA600BAC89E /* Model */,
 				4E4A323622D4E66400C7C481 /* ViewController */,
-				F298D19522CDD6A100FDBACA /* ShareExtension.entitlements */,
 				4E4A323922D4E6A900C7C481 /* Storyboard */,
+				F298D19522CDD6A100FDBACA /* ShareExtension.entitlements */,
 				F298D18D22CDD69900FDBACA /* Info.plist */,
 			);
 			path = ShareExtension;

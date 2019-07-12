@@ -92,11 +92,32 @@ class ShareViewController: SLComposeServiceViewController {
             (data, error) in
             if error != nil { print(error!.localizedDescription) }
             if let url = data as? URL {
+                
+                url.startAccessingSecurityScopedResource()
+                
                 let fileObject = FileObject(name: url.lastPathComponent, type: ContentType(rawValue: type.rawValue)!, url: url)
                 if !self.manager.isExistFavoriteData(fileObject) {
                     self.manager.setFavoriteData(fileObject)
                 }
+                
                 print("fileObject: \(fileObject)")
+                
+                if let userDefault = UserDefaults.init(suiteName: self.suiteName) {
+                    do {
+                        let tmpData = try Data(contentsOf: url)
+                        userDefault.set(tmpData, forKey: url.lastPathComponent)
+                        print("write success")
+                    } catch {
+                        print(error)
+                    }
+                }
+                
+                
+                
+                    
+                url.stopAccessingSecurityScopedResource()
+                print("")
+                
             }
         }
         
