@@ -12,6 +12,7 @@ struct FileObject: Codable {
     let name: String
     let type: ContentType
     let url:  URL
+    let size: UInt64
 }
 
 extension FileObject: Equatable {

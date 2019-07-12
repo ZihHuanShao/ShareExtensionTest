@@ -76,7 +76,7 @@ class ShareViewController: SLComposeServiceViewController {
         
         
 
-        print("heool")
+        print("Done")
         self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
     }
 
@@ -95,24 +95,23 @@ class ShareViewController: SLComposeServiceViewController {
                 
                 url.startAccessingSecurityScopedResource()
                 
-                let fileObject = FileObject(name: url.lastPathComponent, type: ContentType(rawValue: type.rawValue)!, url: url)
-                if !self.manager.isExistFavoriteData(fileObject) {
-                    self.manager.setFavoriteData(fileObject)
-                }
+                let fileObject = FileObject(name: url.lastPathComponent, type: type, url: url, size: self.getSize(atPath: url.path)!)
                 
                 print("fileObject: \(fileObject)")
+                
+                self.manager.setFavoriteData(fileObject)
                 
                 if let userDefault = UserDefaults.init(suiteName: self.suiteName) {
                     do {
                         let tmpData = try Data(contentsOf: url)
                         userDefault.set(tmpData, forKey: url.lastPathComponent)
                         print("write success")
+                        
                     } catch {
                         print(error)
                     }
                 }
-                
-                
+
                 
                     
                 url.stopAccessingSecurityScopedResource()
@@ -122,5 +121,24 @@ class ShareViewController: SLComposeServiceViewController {
         }
         
     }
+    
+    
+    func getSize(atPath path: String) -> UInt64? {
+        do {
+            let attr = try FileManager.default.attributesOfItem(atPath: path)
+            let fileSize = attr[FileAttributeKey.size] as! UInt64
+            
+            /*
+             let dict = attr as NSDictionary
+             fileSize = dict.fileSize()
+             */
+            
+            return fileSize
+        } catch {
+            print("getSize Error: \(error)")
+            return nil
+        }
+    }
+    
     
 }
