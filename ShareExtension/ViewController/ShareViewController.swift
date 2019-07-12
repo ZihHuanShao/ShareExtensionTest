@@ -93,6 +93,7 @@ class ShareViewController: SLComposeServiceViewController {
             if error != nil { print(error!.localizedDescription) }
             if let url = data as? URL {
                 
+                // Enable permission
                 url.startAccessingSecurityScopedResource()
                 
                 let fileObject = FileObject(name: url.lastPathComponent, type: type, url: url, size: self.getSize(atPath: url.path)!)
@@ -101,6 +102,35 @@ class ShareViewController: SLComposeServiceViewController {
                 
                 self.manager.setFavoriteData(fileObject)
                 
+                // FileManager
+                if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: self.suiteName) {
+                    do {
+                        let tmpData = try Data(contentsOf: url)
+                        
+                        let imagePath = shareUrl.appendingPathComponent(url.lastPathComponent)
+                        print("imagePath: \(imagePath)")
+                        
+                        if FileManager().fileExists(atPath: imagePath.path) {
+                            print("imagePath existed!")
+                            try! FileManager().removeItem(at: imagePath)
+                            print("remove successed")
+                        }
+                        
+                        try! tmpData.write(to: imagePath)
+                        print("write successed")
+                           
+                        
+                    } catch {
+                        print(error)
+                    }
+                    
+                    
+                    
+                }
+                
+                
+                /*
+                // Userdefault
                 if let userDefault = UserDefaults.init(suiteName: self.suiteName) {
                     do {
                         let tmpData = try Data(contentsOf: url)
@@ -111,11 +141,13 @@ class ShareViewController: SLComposeServiceViewController {
                         print(error)
                     }
                 }
-
-                
-                    
-                url.stopAccessingSecurityScopedResource()
+                */
+ 
                 print("")
+                
+                // Disable permission
+                url.stopAccessingSecurityScopedResource()
+                
                 
             }
         }
@@ -124,19 +156,16 @@ class ShareViewController: SLComposeServiceViewController {
     
     
     func getSize(atPath path: String) -> UInt64? {
+        
         do {
             let attr = try FileManager.default.attributesOfItem(atPath: path)
             let fileSize = attr[FileAttributeKey.size] as! UInt64
             
-            /*
-             let dict = attr as NSDictionary
-             fileSize = dict.fileSize()
-             */
-            
             return fileSize
         } catch {
-            print("getSize Error: \(error)")
-            return nil
+            
+            // Return 0, if a web url
+            return 0
         }
     }
     

@@ -77,7 +77,6 @@ class FavoriteManager: NSObject {
 
     private func decodeObject() -> [FileObject] {
         if let storeData = userDefault!.data(forKey: storeKey) {
-            //let encodeObject = NSKeyedUnarchiver.unarchiveObject(with: storeData) as! [RadioStation]
             let encodeObject = try? PropertyListDecoder().decode([FileObject].self, from: storeData) //TODO
             return encodeObject!
         } else {
@@ -86,7 +85,6 @@ class FavoriteManager: NSObject {
     }
 
     private func encodeObject(_ data: Any) -> Data {
-        //let data = NSKeyedArchiver.archivedData(withRootObject: data)
         let data = try? PropertyListEncoder().encode(data as! [FileObject])
         return data!
     }

@@ -29,21 +29,62 @@ class ViewController: UIViewController {
             
             switch fileObject.type {
             case .publicJpeg:
+                
+                if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
+                    let imagePath = shareUrl.appendingPathComponent(fileObject.url.lastPathComponent)
+                    print("imagePath: \(imagePath)")
+                    
+                    do {
+                        let fdata = try Data(contentsOf: imagePath)
+                        print("fdata.count:\(fdata)")
+                        DispatchQueue.main.async {
+                            self.myImageView.image = UIImage(contentsOfFile: imagePath.path)
+                        }
+                    } catch {
+                        print(error)
+                    }
+
+                }
+                
+                
+                /*
+                // UserDefaults
                 if let userDefault = UserDefaults.init(suiteName: suiteName) {
                     let imgData = userDefault.data(forKey: fileObject.name)
                     DispatchQueue.main.async {
                         self.myImageView.image = UIImage(data: imgData!)
                     }
                 }
-                
+                */
                 
             case .publicPng:
+                
+                if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
+                    let imagePath = shareUrl.appendingPathComponent(fileObject.url.lastPathComponent)
+                    print("imagePath: \(imagePath)")
+                    
+                    do {
+                        let fdata = try Data(contentsOf: imagePath)
+                        print("fdata.count:\(fdata)")
+                        DispatchQueue.main.async {
+                            self.myImageView.image = UIImage(contentsOfFile: imagePath.path)
+                        }
+                    } catch {
+                        print(error)
+                    }
+                    
+                }
+                
+                /*
+                // UserDefaults
                 if let userDefault = UserDefaults.init(suiteName: suiteName) {
                     let imgData = userDefault.data(forKey: fileObject.name)
                     DispatchQueue.main.async {
                         self.myImageView.image = UIImage(data: imgData!)
                     }
                 }
+                */
+                
             default:
                 print("hello")
             }
@@ -89,7 +130,7 @@ extension ViewController: UITableViewDelegate {
         if let _ = fileObjects {
             let storyboard = UIStoryboard(name: "InfoView", bundle: nil)
             let infoVC = storyboard.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
-            infoVC.lblName.text = fileObjects![indexPath.row].name
+//            infoVC.lblName.text = fileObjects![indexPath.row].name
             
             navigationController?.pushViewController(infoVC, animated: true)
             
