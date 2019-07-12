@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         updateSrc()
         
+        myTableView.register(myTableViewCell.self, forCellReuseIdentifier: "CELL")
         guard let fileObjects = manager.getFavoriteData() else { return }
         
         for fileObject in fileObjects {
@@ -47,37 +48,10 @@ class ViewController: UIViewController {
                 print("hello")
             }
         }
-        
-    
-        
-        /*
-        // MARK: - Support type: kUTTypeURL
-        if let userDefault = UserDefaults.init(suiteName: "group.maxkit.fred.ShareExtensionTest") {
-            if let url = userDefault.url(forKey: "share_url") {
-                myLabel.text = url.absoluteString
-            }
-        } else {
-            fatalError()
-        }
-        
-        
-        
-        if let tempPath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxkit.fred.ShareExtensionTest") {
-            do{
-                let fileList = try FileManager.default.contentsOfDirectory(atPath: tempPath.path)
-                for file in fileList{
-                    print(file)
-                }
-            }
-            catch{
-                print("Cannot list directory")
-            }
-        }
-        */
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
     }
     
     func updateSrc() {
@@ -113,7 +87,11 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let _ = fileObjects {
+            let storyboard = UIStoryboard(name: "InfoView", bundle: nil)
+            let infoVC = storyboard.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+            infoVC.lblName.text = fileObjects![indexPath.row].name
             
+            navigationController?.pushViewController(infoVC, animated: true)
             
             
             /*
