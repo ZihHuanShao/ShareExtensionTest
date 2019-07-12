@@ -132,7 +132,11 @@ extension ViewController: UITableViewDelegate {
         if let _ = fileObjects {
             let storyboard = UIStoryboard(name: "InfoView", bundle: nil)
             let infoVC = storyboard.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
-//            infoVC.lblName.text = fileObjects![indexPath.row].name
+            
+            infoVC.name = fileObjects![indexPath.row].name
+            infoVC.type = fileObjects![indexPath.row].type.rawValue
+            infoVC.size = String(fileObjects![indexPath.row].size)
+            
             
             navigationController?.pushViewController(infoVC, animated: true)
             
