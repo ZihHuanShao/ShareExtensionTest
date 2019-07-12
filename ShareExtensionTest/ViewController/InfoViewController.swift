@@ -15,13 +15,14 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var lblSize: UILabel!
     
     @IBAction func btnShare(_ sender: Any) {
-        let activityViewController = UIActivityViewController(activityItems: [], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
     }
     
     var name: String!
     var type: String!
     var size: String!
+    var url: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
