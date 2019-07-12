@@ -30,6 +30,7 @@ class ViewController: UIViewController {
             switch fileObject.type {
             case .publicJpeg:
                 
+                // METHOD: FileManager
                 if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
                     let imagePath = shareUrl.appendingPathComponent(fileObject.url.lastPathComponent)
                     print("imagePath: \(imagePath)")
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
                 
                 
                 /*
-                // UserDefaults
+                // METHOD: UserDefaults
                 if let userDefault = UserDefaults.init(suiteName: suiteName) {
                     let imgData = userDefault.data(forKey: fileObject.name)
                     DispatchQueue.main.async {
@@ -59,6 +60,7 @@ class ViewController: UIViewController {
                 
             case .publicPng:
                 
+                // METHOD: FileManager
                 if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
                     let imagePath = shareUrl.appendingPathComponent(fileObject.url.lastPathComponent)
                     print("imagePath: \(imagePath)")
@@ -76,7 +78,7 @@ class ViewController: UIViewController {
                 }
                 
                 /*
-                // UserDefaults
+                // METHOD: UserDefaults
                 if let userDefault = UserDefaults.init(suiteName: suiteName) {
                     let imgData = userDefault.data(forKey: fileObject.name)
                     DispatchQueue.main.async {

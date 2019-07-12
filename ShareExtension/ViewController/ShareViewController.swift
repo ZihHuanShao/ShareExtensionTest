@@ -102,7 +102,7 @@ class ShareViewController: SLComposeServiceViewController {
                 
                 self.manager.setFavoriteData(fileObject)
                 
-                // FileManager
+                // METHOD: FileManager
                 if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: self.suiteName) {
                     do {
                         let tmpData = try Data(contentsOf: url)
@@ -130,7 +130,7 @@ class ShareViewController: SLComposeServiceViewController {
                 
                 
                 /*
-                // Userdefault
+                // METHOD: UserDefaults
                 if let userDefault = UserDefaults.init(suiteName: self.suiteName) {
                     do {
                         let tmpData = try Data(contentsOf: url)
