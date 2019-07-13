@@ -11,7 +11,7 @@ import Foundation
 struct FileObject: Codable {
     let name: String
     let type: ContentType
-    let url:  URL
+    let url:  URL?
     let size: UInt64
 }
 

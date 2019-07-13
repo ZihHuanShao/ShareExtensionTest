@@ -26,6 +26,12 @@
 		<dict>
 			<key>NSExtensionActivationRule</key>
 			<dict>
+				<key>NSExtensionActivationSupportsAttachmentsWithMaxCount</key>
+				<string>2</string>
+				<key>NSExtensionActivationSupportsWebPageWithMaxCount</key>
+				<string>2</string>
+				<key>NSExtensionActivationSupportsText</key>
+				<string>2</string>
 				<key>NSExtensionActivationSupportsFileWithMaxCount</key>
 				<string>2</string>
 				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E3E4D5D22D9B9E6009ACDE9 /* url.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3E4D5B22D9B9E6009ACDE9 /* url.png */; };
+		4E3E4D5E22D9B9E6009ACDE9 /* zip.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3E4D5C22D9B9E6009ACDE9 /* zip.png */; };
+		4E3E4D6022D9BAFD009ACDE9 /* pages.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3E4D5F22D9BAFD009ACDE9 /* pages.png */; };
+		4E3E4D6222D9BB88009ACDE9 /* json.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3E4D6122D9BB88009ACDE9 /* json.png */; };
+		4E3E4D6422D9CB31009ACDE9 /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3E4D6322D9CB31009ACDE9 /* text.png */; };
 		F21FD2E222D83643006C3B84 /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21FD2E122D83643006C3B84 /* myTableViewCell.swift */; };
 		F21FD2E822D8391C006C3B84 /* InfoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21FD2E722D8391C006C3B84 /* InfoView.storyboard */; };
 		F21FD2EA22D83AC7006C3B84 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21FD2E922D83AC7006C3B84 /* InfoViewController.swift */; };
@@ -55,6 +60,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E3E4D5B22D9B9E6009ACDE9 /* url.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = url.png; sourceTree = "<group>"; };
+		4E3E4D5C22D9B9E6009ACDE9 /* zip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zip.png; sourceTree = "<group>"; };
+		4E3E4D5F22D9BAFD009ACDE9 /* pages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pages.png; sourceTree = "<group>"; };
+		4E3E4D6122D9BB88009ACDE9 /* json.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = json.png; sourceTree = "<group>"; };
+		4E3E4D6322D9CB31009ACDE9 /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
 		F21FD2E122D83643006C3B84 /* myTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableViewCell.swift; sourceTree = "<group>"; };
 		F21FD2E722D8391C006C3B84 /* InfoView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoView.storyboard; sourceTree = "<group>"; };
 		F21FD2E922D83AC7006C3B84 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +107,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E3E4D5A22D9B9D2009ACDE9 /* preview logo */ = {
+			isa = PBXGroup;
+			children = (
+				4E3E4D5F22D9BAFD009ACDE9 /* pages.png */,
+				4E3E4D5B22D9B9E6009ACDE9 /* url.png */,
+				4E3E4D6122D9BB88009ACDE9 /* json.png */,
+				4E3E4D6322D9CB31009ACDE9 /* text.png */,
+				4E3E4D5C22D9B9E6009ACDE9 /* zip.png */,
+			);
+			path = "preview logo";
+			sourceTree = "<group>";
+		};
 		4E4A323622D4E66400C7C481 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +222,7 @@
 				4E4A323722D4E67F00C7C481 /* ViewController */,
 				F21FD30F22D88939006C3B84 /* Cell */,
 				4E4A323822D4E68F00C7C481 /* Storyboard */,
+				4E3E4D5A22D9B9D2009ACDE9 /* preview logo */,
 				F298D19622CDD79700FDBACA /* ShareExtensionTest.entitlements */,
 				F298D17022CDD60200FDBACA /* AppDelegate.swift */,
 				F298D17722CDD60E00FDBACA /* Assets.xcassets */,
@@ -314,6 +337,11 @@
 			files = (
 				F298D17B22CDD60E00FDBACA /* LaunchScreen.storyboard in Resources */,
 				F21FD2E822D8391C006C3B84 /* InfoView.storyboard in Resources */,
+				4E3E4D6422D9CB31009ACDE9 /* text.png in Resources */,
+				4E3E4D5D22D9B9E6009ACDE9 /* url.png in Resources */,
+				4E3E4D6022D9BAFD009ACDE9 /* pages.png in Resources */,
+				4E3E4D5E22D9B9E6009ACDE9 /* zip.png in Resources */,
+				4E3E4D6222D9BB88009ACDE9 /* json.png in Resources */,
 				F298D17822CDD60E00FDBACA /* Assets.xcassets in Resources */,
 				F298D17622CDD60200FDBACA /* Main.storyboard in Resources */,
 			);
