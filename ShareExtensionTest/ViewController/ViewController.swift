@@ -10,8 +10,10 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var myPlayerView: UIView!
     
     let manager     = FavoriteManager.shareInstance
     let fileObjects = FavoriteManager.shareInstance.getFavoriteData()
@@ -33,16 +35,31 @@ class ViewController: UIViewController {
     }
     
     func previewObject(image: UIImage) {
+        //myPlayerView.layer.sublayers!.removeAll()
+        
+        myImageView.isHidden = false
+        myPlayerView.isHidden = true
+        
         DispatchQueue.main.async {
             self.myImageView.image = image
         }
     }
     
     func previewObject(player: AVPlayer) {
+        
         let layer = AVPlayerLayer(player: player)
         
-        myImageView.layer.addSublayer(layer)
-        layer.frame = myImageView.bounds
+        myPlayerView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+        
+        //myPlayerView.layer.replaceSublayer(CALayer(), with: layer)
+        //myPlayerView.layer.
+        
+        layer.frame = myPlayerView.bounds
+        myImageView.isHidden = true
+        myPlayerView.isHidden = false
+        
+        myPlayerView.layer.addSublayer(layer)
+        
         DispatchQueue.main.async {
             player.play()
         }
@@ -75,6 +92,8 @@ extension ViewController: UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //myPlayerView.
         
         if let _ = fileObjects {
             
