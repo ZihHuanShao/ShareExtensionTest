@@ -99,16 +99,16 @@ class ShareViewController: SLComposeServiceViewController {
 
                 self.setToObjects(name: url.lastPathComponent, type: type, url: url, size: self.getSize(atPath: url.path)!)
         
-                // METHOD: FileManager
+                // METHOD 1: FileManager
                 if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: self.suiteName) {
                     do {
                         let tmpData = try Data(contentsOf: url)
                         let tmpDataPath = shareUrl.appendingPathComponent(url.lastPathComponent)
                         
-                        /*
+                        /*---
                         // Remove duplicated item
                         if FileManager().fileExists(atPath: imagePath.path) { try! FileManager().removeItem(at: imagePath) }
-                        */
+                        ---*/
                         
                         try! tmpData.write(to: tmpDataPath)
                         print("write successed")
@@ -120,8 +120,8 @@ class ShareViewController: SLComposeServiceViewController {
                 }
                 
                 
-                /*
-                // METHOD: UserDefaults
+                /*---
+                // METHOD 2: UserDefaults
                 if let userDefault = UserDefaults.init(suiteName: self.suiteName) {
                     do {
                         let tmpData = try Data(contentsOf: url)
@@ -132,7 +132,7 @@ class ShareViewController: SLComposeServiceViewController {
                         print(error)
                     }
                 }
-                */
+                ---*/
  
                 print("")
                 

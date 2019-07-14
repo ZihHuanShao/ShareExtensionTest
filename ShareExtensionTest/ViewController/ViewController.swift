@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var myTableView: UITableView!
@@ -17,51 +18,8 @@ class ViewController: UIViewController {
     let suiteName   = "group.maxkit.fred.ShareExtensionTest"
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         updateSrc()
-//        myTableView.register(myTableViewCell.self, forCellReuseIdentifier: "CELL")
-        guard let fileObjects = manager.getFavoriteData() else { return }
-        
-        for fileObject in fileObjects {
-            print("fileObject: \(fileObject)")
-            
-            switch fileObject.type {
-                
-            case .publicPng:
-                
-                // METHOD: FileManager
-                if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
-                    let imagePath = shareUrl.appendingPathComponent(fileObject.url!.lastPathComponent)
-                    print("imagePath: \(imagePath)")
-                    
-                    do {
-                        let fdata = try Data(contentsOf: imagePath)
-                        print("fdata.count:\(fdata)")
-                        DispatchQueue.main.async {
-                            self.myImageView.image = UIImage(contentsOfFile: imagePath.path)
-                        }
-                    } catch {
-                        print(error)
-                    }
-                    
-                }
-                
-                /*
-                // METHOD: UserDefaults
-                if let userDefault = UserDefaults.init(suiteName: suiteName) {
-                    let imgData = userDefault.data(forKey: fileObject.name)
-                    DispatchQueue.main.async {
-                        self.myImageView.image = UIImage(data: imgData!)
-                    }
-                }
-                */
-                
-            default:
-                print("hello")
-            }
-        }
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,10 +68,26 @@ extension ViewController: UITableViewDelegate {
             switch fileObjects![indexPath.row].type {
                 
             case .publicJpeg:
+                
+                // METHOD 1: FileManager
                 if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
                     let imagePath = shareUrl.appendingPathComponent(fileObjects![indexPath.row].url!.lastPathComponent)
                     previewObject(image: UIImage(contentsOfFile: imagePath.path)!)
+                    
+                    /*---
+                    // Can use 'Data' type as well
+                    let data = try? Data(contentsOf: imagePath)
+                    previewObject(image: UIImage(data: data!)!)
+                    ---*/
                 }
+                
+                /*---
+                // METHOD 2: UserDefaults
+                if let userDefault = UserDefaults.init(suiteName: suiteName) {
+                    let data = userDefault.data(forKey: fileObjects![indexPath.row].name)
+                    previewObject(image: UIImage(data: data!)!)
+                }
+                ---*/
                 
             case .publicUrl:
                 previewObject(image: UIImage(named: "url.png")!)
@@ -154,6 +128,16 @@ extension ViewController: UITableViewDelegate {
             infoVC.type = fileObjects![indexPath.row].type.rawValue
             infoVC.size = String(fileObjects![indexPath.row].size)
             
+            
+            if fileObjects![indexPath.row].type == .publicPlainText {
+                infoVC.shareItem = fileObjects![indexPath.row].name
+            } else {
+                if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
+                    let dataPath = shareUrl.appendingPathComponent(fileObjects![indexPath.row].url!.lastPathComponent)
+                    infoVC.shareItem = dataPath
+                }
+            }
+
             navigationController?.pushViewController(infoVC, animated: true)
             
         }
