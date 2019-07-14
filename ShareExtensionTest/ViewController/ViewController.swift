@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet weak var myImageView: UIImageView!
@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     let manager     = FavoriteManager.shareInstance
     let fileObjects = FavoriteManager.shareInstance.getFavoriteData()
     let suiteName   = "group.maxkit.fred.ShareExtensionTest"
+    
+    var player: AVPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,16 @@ class ViewController: UIViewController {
     func previewObject(image: UIImage) {
         DispatchQueue.main.async {
             self.myImageView.image = image
+        }
+    }
+    
+    func previewObject(player: AVPlayer) {
+        let layer = AVPlayerLayer(player: player)
+        
+        myImageView.layer.addSublayer(layer)
+        layer.frame = myImageView.bounds
+        DispatchQueue.main.async {
+            player.play()
         }
     }
 }
@@ -63,6 +75,7 @@ extension ViewController: UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if let _ = fileObjects {
             
             switch fileObjects![indexPath.row].type {
@@ -110,7 +123,13 @@ extension ViewController: UITableViewDelegate {
             case .publicPlainText:
                 previewObject(image: UIImage(named: "text.png")!)
 
-//            case .publicMpeg4:
+            case .publicMpeg4:
+                if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
+                    let filmPath = shareUrl.appendingPathComponent(fileObjects![indexPath.row].url!.lastPathComponent)
+                    previewObject(player: AVPlayer(url: filmPath.absoluteURL))
+                    
+                }
+   
             default:
                 print("default")
             }
