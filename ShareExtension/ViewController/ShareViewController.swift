@@ -96,7 +96,7 @@ class ShareViewController: SLComposeServiceViewController {
         attachment.loadItem(forTypeIdentifier: type.rawValue, options: nil) {
             
             (data, error) in
-            print("data: \(data)")
+            print("data: \(data!)")
             
             if error != nil { print(error!) }
             
@@ -107,7 +107,7 @@ class ShareViewController: SLComposeServiceViewController {
 
                 self.setToObjects(name: url.lastPathComponent, type: type, url: url, size: self.getSize(atPath: url.path)!)
         
-                // METHOD 1: FileManager
+                // MARK: - METHOD 1: FileManager
                 if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: self.suiteName) {
                     do {
                         let tmpData = try Data(contentsOf: url)
@@ -126,10 +126,11 @@ class ShareViewController: SLComposeServiceViewController {
                     }
    
                 }
+                // MARK END
                 
                 
                 /*---
-                // METHOD 2: UserDefaults
+                 // MARK: - METHOD 2: UserDefaults
                 if let userDefault = UserDefaults.init(suiteName: self.suiteName) {
                     do {
                         let tmpData = try Data(contentsOf: url)
@@ -140,6 +141,7 @@ class ShareViewController: SLComposeServiceViewController {
                         print(error)
                     }
                 }
+                // MARK END
                 ---*/
  
                 print("")
@@ -154,7 +156,6 @@ class ShareViewController: SLComposeServiceViewController {
                 
             } else {
                 print("Can not unwrapping to type.")
-                print("data: \(data)")
             }
         }
         
@@ -176,7 +177,7 @@ class ShareViewController: SLComposeServiceViewController {
             
         } catch {
             
-            // Return 0, if is web url
+            // Return 0, if web url
             return 0
             
         }

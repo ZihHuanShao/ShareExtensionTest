@@ -30,9 +30,9 @@ class InfoViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        lblName.text = name
         super.viewDidLoad()
         
+        lblName.text = name
         lblType.text = type
         lblSize.text = size
     }

@@ -31,15 +31,15 @@
 				<key>NSExtensionActivationSupportsAttachmentsWithMaxCount</key>
 				<string>10</string>
 				<key>NSExtensionActivationSupportsWebPageWithMaxCount</key>
-				<string>2</string>
+				<string></string>
 				<key>NSExtensionActivationSupportsText</key>
-				<string>2</string>
+				<string></string>
 				<key>NSExtensionActivationSupportsFileWithMaxCount</key>
-				<string>2</string>
+				<string></string>
 				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
-				<string>2</string>
+				<string></string>
 				<key>NSExtensionActivationSupportsImageWithMaxCount</key>
-				<string>2</string>
+				<string></string>
 			</dict>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>

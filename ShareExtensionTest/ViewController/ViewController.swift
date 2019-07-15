@@ -88,7 +88,7 @@ extension ViewController: UITableViewDelegate {
                 
             case .publicJpeg:
                 
-                // METHOD 1: FileManager
+                // MARK: - METHOD 1: FileManager
                 if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
                     let imagePath = shareUrl.appendingPathComponent(fileObjects![indexPath.row].url!.lastPathComponent)
                     previewObject(image: UIImage(contentsOfFile: imagePath.path)!)
@@ -99,13 +99,15 @@ extension ViewController: UITableViewDelegate {
                     previewObject(image: UIImage(data: data!)!)
                     ---*/
                 }
+                // MARK END
                 
                 /*---
-                // METHOD 2: UserDefaults
+                // MARK: - METHOD 2: UserDefaults
                 if let userDefault = UserDefaults.init(suiteName: suiteName) {
                     let data = userDefault.data(forKey: fileObjects![indexPath.row].name)
                     previewObject(image: UIImage(data: data!)!)
                 }
+                // MARK END
                 ---*/
                 
             case .publicUrl:
@@ -163,15 +165,6 @@ extension ViewController: UITableViewDelegate {
                 }
                 
             }
-            
-//            if fileObjects![indexPath.row].type == .publicPlainText {
-//                infoVC.shareItem = fileObjects![indexPath.row].name
-//            } else {
-//                if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
-//                    let dataPath = shareUrl.appendingPathComponent(fileObjects![indexPath.row].url!.lastPathComponent)
-//                    infoVC.shareItem = dataPath
-//                }
-//            }
 
             navigationController?.pushViewController(infoVC, animated: true)
         }
