@@ -21,17 +21,18 @@ class InfoViewController: UIViewController {
     var shareItem: Any!
     
     @IBAction func btnShare(_ sender: Any) {
-        if type == ContentType.publicPlainText.rawValue {
-            present(UIActivityViewController(activityItems: [shareItem as! String], applicationActivities: nil), animated: true, completion: nil)
-        } else {
-            present(UIActivityViewController(activityItems: [shareItem as! URL], applicationActivities: nil), animated: true, completion: nil)
+        if let urlItem = shareItem as? URL {
+            present(UIActivityViewController(activityItems: [urlItem], applicationActivities: nil), animated: true, completion: nil)
+        } else if let stringItem = shareItem as? String { 
+            present(UIActivityViewController(activityItems: [stringItem], applicationActivities: nil), animated: true, completion: nil)
         }
+
     }
 
     override func viewDidLoad() {
+        lblName.text = name
         super.viewDidLoad()
         
-        lblName.text = name
         lblType.text = type
         lblSize.text = size
     }

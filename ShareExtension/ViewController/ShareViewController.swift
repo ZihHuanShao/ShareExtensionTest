@@ -36,6 +36,12 @@ class ShareViewController: SLComposeServiceViewController {
                             
                         case attachment.hasItemConformingToTypeIdentifier(ContentType.publicJpeg.rawValue):
                             self.retriveAttachment(attachment: attachment, type: .publicJpeg)
+                        
+                        case attachment.hasItemConformingToTypeIdentifier(ContentType.publicPng.rawValue):
+                            self.retriveAttachment(attachment: attachment, type: .publicPng)
+                            
+                        case attachment.hasItemConformingToTypeIdentifier(ContentType.publicPlainText.rawValue):
+                            self.retriveAttachment(attachment: attachment, type: .publicPlainText)
                             
                         case attachment.hasItemConformingToTypeIdentifier(ContentType.publicUrl.rawValue):
                             switch (true) {
@@ -59,12 +65,14 @@ class ShareViewController: SLComposeServiceViewController {
                             case attachment.hasItemConformingToTypeIdentifier(ContentType.publicMpeg4.rawValue):
                                 self.retriveAttachment(attachment: attachment, type: .publicMpeg4)
                                 
+                            case attachment.hasItemConformingToTypeIdentifier(ContentType.publicPlainText.rawValue):
+                                self.retriveAttachment(attachment: attachment, type: .publicPlainText)
+                                
                             default:
                                 self.retriveAttachment(attachment: attachment, type: .publicUrl)
                             }
                             
-                        case attachment.hasItemConformingToTypeIdentifier(ContentType.publicPlainText.rawValue):
-                            self.retriveAttachment(attachment: attachment, type: .publicPlainText)
+                        
                             
                         default:
                             print("default attachment: \(attachment)")
@@ -141,7 +149,7 @@ class ShareViewController: SLComposeServiceViewController {
                 
             } else if let str = data as? String {
                 
-                // No url and size exists, if is simple text
+                // No url and size exists, if a simple text
                 self.setToObjects(name: str, type: type, url: nil, size: 0)
                 
             } else {

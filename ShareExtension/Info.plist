@@ -26,8 +26,10 @@
 		<dict>
 			<key>NSExtensionActivationRule</key>
 			<dict>
+				<key>NSExtensionActivationSupportsMovieWithMaxCount</key>
+				<string></string>
 				<key>NSExtensionActivationSupportsAttachmentsWithMaxCount</key>
-				<string>2</string>
+				<string>10</string>
 				<key>NSExtensionActivationSupportsWebPageWithMaxCount</key>
 				<string>2</string>
 				<key>NSExtensionActivationSupportsText</key>

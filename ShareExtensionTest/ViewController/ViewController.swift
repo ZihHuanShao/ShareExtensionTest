@@ -153,15 +153,25 @@ extension ViewController: UITableViewDelegate {
             infoVC.type = fileObjects![indexPath.row].type.rawValue
             infoVC.size = String(fileObjects![indexPath.row].size)
             
-            
-            if fileObjects![indexPath.row].type == .publicPlainText {
-                infoVC.shareItem = fileObjects![indexPath.row].name
-            } else {
-                if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
+            if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
+                if let _ = fileObjects![indexPath.row].url {
                     let dataPath = shareUrl.appendingPathComponent(fileObjects![indexPath.row].url!.lastPathComponent)
                     infoVC.shareItem = dataPath
+                } else {
+                    // Just only set fileObject name, if a simple string
+                    infoVC.shareItem = fileObjects![indexPath.row].name
                 }
+                
             }
+            
+//            if fileObjects![indexPath.row].type == .publicPlainText {
+//                infoVC.shareItem = fileObjects![indexPath.row].name
+//            } else {
+//                if let shareUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
+//                    let dataPath = shareUrl.appendingPathComponent(fileObjects![indexPath.row].url!.lastPathComponent)
+//                    infoVC.shareItem = dataPath
+//                }
+//            }
 
             navigationController?.pushViewController(infoVC, animated: true)
         }
