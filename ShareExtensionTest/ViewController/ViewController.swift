@@ -19,8 +19,6 @@ class ViewController: UIViewController {
     let fileObjects = FavoriteManager.shareInstance.getFavoriteData()
     let suiteName   = "group.maxkit.fred.ShareExtensionTest"
     
-    var player: AVPlayer?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateSrc()
@@ -31,13 +29,11 @@ class ViewController: UIViewController {
     
     func updateSrc() {
         myTableView.dataSource = self
-        myTableView.delegate = self
+        myTableView.delegate   = self
     }
     
     func previewObject(image: UIImage) {
-        //myPlayerView.layer.sublayers!.removeAll()
-        
-        myImageView.isHidden = false
+        myImageView.isHidden  = false
         myPlayerView.isHidden = true
         
         DispatchQueue.main.async {
@@ -46,17 +42,13 @@ class ViewController: UIViewController {
     }
     
     func previewObject(player: AVPlayer) {
-        
-        let layer = AVPlayerLayer(player: player)
+        myImageView.isHidden  = true
+        myPlayerView.isHidden = false
         
         myPlayerView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
         
-        //myPlayerView.layer.replaceSublayer(CALayer(), with: layer)
-        //myPlayerView.layer.
-        
+        let layer   = AVPlayerLayer(player: player)
         layer.frame = myPlayerView.bounds
-        myImageView.isHidden = true
-        myPlayerView.isHidden = false
         
         myPlayerView.layer.addSublayer(layer)
         
@@ -80,11 +72,8 @@ extension ViewController: UITableViewDataSource {
         if let _ = fileObjects {
             cell.textLabel!.text = fileObjects![indexPath.row].name
         }
-        
         return cell
     }
-    
-   
 }
 
 // MRAK: - UITableViewDelegate
@@ -92,8 +81,6 @@ extension ViewController: UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //myPlayerView.
         
         if let _ = fileObjects {
             
@@ -177,7 +164,6 @@ extension ViewController: UITableViewDelegate {
             }
 
             navigationController?.pushViewController(infoVC, animated: true)
-            
         }
     }
 }

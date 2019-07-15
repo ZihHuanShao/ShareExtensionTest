@@ -90,7 +90,7 @@ class ShareViewController: SLComposeServiceViewController {
             (data, error) in
             print("data: \(data)")
             
-            if error != nil { print(error) }
+            if error != nil { print(error!) }
             
             if let url = data as? URL {
                 
@@ -152,6 +152,7 @@ class ShareViewController: SLComposeServiceViewController {
         
     }
     
+    // Save each item info to object array
     func setToObjects(name: String, type: ContentType, url:  URL?, size: UInt64) {
         let fileObject = FileObject(name: name, type: type, url: url, size: size)
         self.manager.setFavoriteData(fileObject)
