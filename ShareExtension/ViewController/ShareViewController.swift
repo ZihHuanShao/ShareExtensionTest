@@ -44,6 +44,7 @@ class ShareViewController: SLComposeServiceViewController {
                             self.retriveAttachment(attachment: attachment, type: .publicPlainText)
                             
                         case attachment.hasItemConformingToTypeIdentifier(ContentType.publicUrl.rawValue):
+                            
                             switch (true) {
                             case attachment.hasItemConformingToTypeIdentifier(ContentType.publicZip_archive.rawValue):
                                 
@@ -96,7 +97,7 @@ class ShareViewController: SLComposeServiceViewController {
         attachment.loadItem(forTypeIdentifier: type.rawValue, options: nil) {
             
             (data, error) in
-            print("data: \(data!)")
+            //print("data: \(data)")
             
             if error != nil { print(error!) }
             

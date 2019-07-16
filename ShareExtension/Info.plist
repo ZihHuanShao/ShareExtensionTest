@@ -27,19 +27,19 @@
 			<key>NSExtensionActivationRule</key>
 			<dict>
 				<key>NSExtensionActivationSupportsMovieWithMaxCount</key>
-				<string></string>
+				<string>3</string>
 				<key>NSExtensionActivationSupportsAttachmentsWithMaxCount</key>
 				<string>10</string>
 				<key>NSExtensionActivationSupportsWebPageWithMaxCount</key>
-				<string></string>
+				<string>3</string>
 				<key>NSExtensionActivationSupportsText</key>
-				<string></string>
+				<string>3</string>
 				<key>NSExtensionActivationSupportsFileWithMaxCount</key>
-				<string></string>
+				<string>3</string>
 				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
-				<string></string>
+				<string>3</string>
 				<key>NSExtensionActivationSupportsImageWithMaxCount</key>
-				<string></string>
+				<string>3</string>
 			</dict>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>
